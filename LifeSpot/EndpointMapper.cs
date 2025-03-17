@@ -31,7 +31,7 @@ namespace LifeSpot
         /// </summary>
         public static void MapJs(this IEndpointRouteBuilder builder)
         {
-            var jsFiles = new[] { "index.js", "testing.js", "about.js" };
+            var jsFiles = new[] { "index.js", "testing.js", "about.js", "slider.js" };
 
             foreach (var fileName in jsFiles)
             {
@@ -54,7 +54,6 @@ namespace LifeSpot
                 {
                     var imgPath = Path.Combine(Directory.GetCurrentDirectory(), "Static", "Images", fileName);
                     var img = await File.ReadAllBytesAsync(imgPath);
-                    //await context.Response.WriteAsync(img);
                     await context.Response.Body.WriteAsync(img);
                 });
             }
